@@ -1,0 +1,39 @@
+var i=3, j=0, q=0, primes=[],t=true,isPrime=[],b=false,divisors=[0,1,2];
+while(divisors[i-1]<500){
+  q=i*(i+1)/2;
+  t=true;
+  j=2;
+  divisors[i]=0;
+  b=false;
+  while(t){
+    if(q%j===0){
+      divisors[i]++;
+      //t=false;
+    }
+    j++;
+    if(j>=Math.sqrt(q)){
+      if(q%j===0){
+        b=true;
+      }
+      t=false;
+    }
+  }
+  if(b){
+    b=1;
+  }else{
+    b=0;
+  }
+  divisors[i]=divisors[i]*2;
+  divisors[i]+=2;
+  divisors[i]+=b;
+  console.log(divisors[i]);
+  /*if(divisors[i]===0){
+    isPrime[i]=true;
+    primes.push(i);
+    console.log(primes.length-1+":"+i);
+  }else{
+    isPrime[i]=false;
+  }*/
+  i++;
+}
+console.log(q)
